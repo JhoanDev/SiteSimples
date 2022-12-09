@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXPP002</title>
+    <style>
+        body{
+            background-color: rgb(39, 36, 36);
+            color: antiquewhite;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            font-size: 22px
+        }
+        input{
+            font: normal 18px Arial;
+            color: aliceblue;
+            width: 75px;
+            background-color: #2e2f30;
+            border: 3px solid rgb(10, 10, 10);
+            transition: width 0.4s ease-in-out;
+            position: static;
+        }
+        input#nome{
+            position: absolute;
+            top: 123px;
+            left: 100px
+        } 
+        input#salario{
+            position: absolute;
+            top: 173px;
+            left: 100px
+            
+        } 
+        input#idade{
+            position: absolute;
+            top: 223px;
+            left: 100px
+        } 
+
+        input#nome:focus{
+            width: 50%;
+        }
+        input#salario:focus{
+            width: 25%;
+        }
+        input#idade:focus{
+            width: 20%;
+        }
+        div#resultado {
+            margin-left: 165px;
+        }
+        input#registrar {
+            left: 30px;
+            width: 100px;
+            font-family: verdana;
+            font-weight: bold;
+            color: #000000 !important;
+            font-size: 13px;
+            text-shadow: 2px 2px 4px #600B91;
+            box-shadow: 3px 3px 7px #400040;
+            padding: 10px 15px;
+            border-radius: 40px;
+            border: 2px solid #04060A;
+            background: #540078;
+            background: linear-gradient(to top, #8315b3, #3b033a);
+            position: absolute
+        }
+        #registrar:hover {
+            color: #000000 !important;
+            background: #CF1169;
+        }
+    </style>
+</head>
+<body>
+    <h1>Area de Registro</h1>
+    <p>Nome:    <input type="text" name="Nome" id="nome"></p>
+    <p>Salário:    <input type="number" name="Salário" id="salario"></p>
+    <p>Idade:     <input type="number" name="Idade" id="idade"></p>
+
+    <input type="button" value="Registrar" onclick="registrar()" id="registrar">
+    <div id="resultado">Aguardando...</div>
+    <script>
+        function registrar(){
+            var tn1 = window.document.querySelector('input#nome')
+            var tn2 = window.document.querySelector('input#salario')
+            var tn3 = window.document.querySelector('input#idade')
+            var res = window.document.querySelector('div#resultado')
+            var nome = String(tn1.value)
+            var salario = Number(tn2.value)
+            var idade = Number(tn3.value)
+            res.innerHTML = `Olá <b>${nome}</b> de <b>${idade}</b> anos o seu salário atual é: <b>${salario.toLocaleString('pt-BR',{style: 'currency', currency: 'BRL'})}</b> `
+        }
+
+    </script>
+</body>
+</html>
